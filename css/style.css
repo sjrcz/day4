@@ -1,0 +1,167 @@
+#box{
+    width: 100%;
+    height: 100%;
+    background: #eeeeee;
+}
+header{
+    width: 100%;
+    height: 45%;
+    background-color: #00ccff;
+}
+.top{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.top img{
+    width: 1rem;
+    height: 1rem;
+
+}
+.top input{
+    width: 60%;
+    height: 0.7rem;
+    border-radius: 0.4rem;
+    background:#52dcff  url('../img/ss.png') no-repeat 5%;
+    background-size: 10%;
+    padding-left: 1rem;
+}
+header h2{
+    width: 5rem;
+    height: 1rem;
+    margin-top: 0.7rem;
+    /* background: red; */
+    font-size: 0.7rem;
+    color: #fff;
+}
+header p{
+    width: 3rem;
+    height: 0.7rem;
+    background-color: #fff;
+    border-radius: 1.2rem;
+    font-size: 0.4rem;
+    color: #00ccff;
+    text-align: center;
+    line-height: 0.7rem;
+    margin-top: 0.5rem;
+}
+.bottom{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 0.6rem;
+    padding-bottom: 0.5rem;
+}
+.bottom dl{
+    text-align: center;
+}
+.bottom dl dd{
+    color: #fff;
+}
+main{
+    width: 100%;
+    height: 30%;
+    background: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+main dl{
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0.4rem;
+    /* background: red; */
+}
+main dt{
+    width: 90%;
+    height: 70%;
+}
+main dt img{
+    width: 100%;
+    height:100%;
+}
+main dd{
+    text-align: center;
+}
+.min{
+    width: 100%;
+    height: 7rem;
+    background: #eeeeee;
+}
+footer{
+    width: 100%;
+    height: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: black;
+}
+footer dl{
+    text-align: center;
+}
+footer dl dd{
+    color: #fff;
+}
+.max{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100%;
+    background: #ffffff;
+}
+.max .dl{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #00ccff;
+}
+.max .dl dd{
+    font-size: 0.4rem;
+}
+.dl dd span{
+    font-size: 0.3rem;
+}
+.ll{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.ll dl dd{
+    text-align: center;
+}
+.ll p{
+    font-size: 0.4rem;
+}
+.max ul{
+    width: 90%;
+    height: 40%;
+    margin-left: 0.6rem;
+}
+.max ul li{
+    height: 0.7rem;
+    border-bottom: 1px solid grey;
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+.max ul li a{
+    padding-left: 1rem;
+    font-size: 0.4rem;
+    background: url('../img/l3.png') no-repeat 10%;
+}
+.max .p{
+    position: fixed;
+    bottom: 0;
+    left: 0.6rem;
+}

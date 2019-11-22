@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../lib/bootstrap@3.3.4/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        form{
+            margin: 10px 20px;
+        }
+       .divClass{
+           margin: 0 20px;
+       }
+    </style>
+</head>
+<body>
+    <!-- 编程 思想
+    看见 将其拆分  拆分成一个个小目标 在完成一个个小目标
+    -->
+    <form>
+        <div class="form-group">
+            <label for="name11">姓名：</label>
+            <input type="text" class="form-control" id="name11" placeholder="姓名">
+        </div>
+        <div class="form-group">
+            <label for="tel">电话：</label>
+            <input type="text" class="form-control" id="tel" placeholder="电话">
+        </div> 
+        <div class="form-group">
+            <label for="email">邮箱：</label>
+            <input type="text" class="form-control" id="email" placeholder="邮箱">
+        </div>            
+        <button type="submit" class="btn btn-default btnSave">Submit</button>
+    </form>
+    <div class="divClass">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>姓名</td>
+                    <td>电话</td>
+                    <td>邮箱</td>
+                    <td>功能</td>
+                </tr>
+            </thead>
+            <tbody>
+               
+            </tbody>
+        </table>
+    </div>
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="editName11">姓名：</label>
+            <input type="text" class="form-control" id="editName11" placeholder="姓名">
+        </div>
+        <div class="form-group">
+            <label for="editTel">电话：</label>
+            <input type="text" class="form-control" id="editTel" placeholder="电话">
+        </div> 
+        <div class="form-group">
+            <label for="editEmail">邮箱：</label>
+            <input type="text" class="form-control" id="editEmail" placeholder="邮箱">
+        </div>            
+        <button type="submit" class="btn btn-default btnEdit">Submit</button>
+    </form>
+    
+    <script>
+        // console.log(name11);
+        /* 
+        分析：目标：将form表单中的东西怎么存入到web存储中
+
+
+         */
+         var btnSave = document.querySelector('.btnSave');
+         var table = document.querySelector('table');
+         btnSave.onclick = function(e){
+            var tbo = document.querySelector('table tbody'); 
+             e.preventDefault();
+             var obj = {
+                 name:name11.value,
+                 tel:tel.value,
+                 email:email.value
+             };
+             console.log(obj);             
+            //  localStorage.setItem('listOld',JSON.stringify(obj));
+            var str = `
+                        <tr>
+                            <td>${obj.name}</td>
+                            <td>${obj.tel}</td>
+                            <td>${obj.email}</td>
+                            <td>
+                                <button class="delBtn">删除</button>
+                                <button class="editBtn">修改</button>
+                            </td>
+                        </tr>`;
+            tbo.innerHTML += str;
+             
+         }
+         //目标 将localstorage中的数据渲染到表格中
+         render();
+         function render(){
+            var tbo = document.querySelector('table tbody'); 
+            var all = localStorage.getItem('listOld');
+            all = JSON.parse(all);
+            if(all){
+                all.forEach(element => {
+                    var str = `
+                        <tr>
+                            <td>${element.name}</td>
+                            <td>${element.tel}</td>
+                            <td>${element.email}</td>
+                            <td>
+                                <button class="delBtn">删除</button>
+                                <button class="editBtn">修改</button>
+                            </td>
+                        </tr>`
+                    tbo.innerHTML += str;    
+               });
+            }           
+         }
+         //删除功能  原生的事件委托怎么写   删的是target对应的那一行，localStorage里对应的那一条数据    目标找index
+         table.addEventListener('click',function(e){
+             var event = e || window.event;
+             var target = event.target || event.srcElement;
+             if(target.className=='delBtn'){
+            //  console.log(target);
+                // console.log(table.rows.rowIndex);
+                console.log(target.parentNode.parentNode.rowIndex);
+                var index = target.parentNode.parentNode.rowIndex -1;
+                target.parentNode.parentNode.remove();
+                var all = localStorage.getItem('listOld');
+                all = JSON.parse(all);
+                all.splice(index,1);
+                localStorage.setItem('listOld',JSON.stringify(all));
+             }
+         })
+
+         //修改   
+         table.addEventListener('click',function(e){
+             var event = e || window.event;
+             var target = event.target || event.srcElement;
+             if(target.className=='editBtn'){
+                var index = target.parentNode.parentNode.rowIndex -1;
+                var all = localStorage.getItem('listOld');
+                all = JSON.parse(all);
+                var obj = all[index];
+                console.log(obj);
+                editName11.value = obj.name;
+                editTel.value = obj.tel;
+                editEmail.value = obj.email;
+             }
+             var btnEdit = document.querySelector('.btnEdit');
+            btnEdit.onclick = function(e){
+                var tbo = document.querySelector('table tbody'); 
+                e.preventDefault();
+                console.log(index);
+                //目标 替换咱们table tr  splice  替换咱们listOld的数据
+                var obj1 = {
+                    name:editName11.value,
+                    tel:editTel.value,
+                    email:editEmail.value,
+                };
+                var newNode = document.createElement('tr');
+                newNode.innerHTML = `
+                        <tr>
+                            <td>${obj1.name}</td>
+                            <td>${obj1.tel}</td>
+                            <td>${obj1.email}</td>
+                            <td>
+                                <button class="delBtn">删除</button>
+                                <button class="editBtn">修改</button>
+                            </td>
+                        </tr>`;
+                console.log(tbo.rows);   
+                var oldNode = tbo.rows[index];                     
+                tbo.replaceChild(newNode,oldNode);  
+
+            //修改localStorage中的数据
+                var all = localStorage.getItem('listOld');
+                all = JSON.parse(all);
+                all.splice(index,1,obj1);
+                localStorage.setItem('listOld',JSON.stringify(all));
+                
+            }
+         })
+         //修改保存
+         
+
+
+
+    </script>
+</body>
+</html>

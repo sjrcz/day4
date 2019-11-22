@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="https://www.baidu.com" autocomplete="off">
+        <h2>注册</h2>
+        <label for="name">用户名:</label>
+         <input type="text" id="inp1"><br>
+        <label for="password">密码 ：</label>
+        <input type="password" id="mm1"><input type="button" value="提交" id="but1"><br>
+        <br><br>
+        <h2>登录</h2>
+        <label for="name">用户名:</label>
+         <input type="text" id="inp2"><br>
+        <label for="password">密码 ：</label><input type="password" id="mm2"> <input type="button" value="提交" id="but2"><br>
+        <br><br>
+        <h2>修改</h2>
+        <label for="name">用户名:</label>
+         <input type="text" id="inp3"><br>
+        <label for="password">密码 ：</label>
+        <input type="password" id="mm3"> <input type="button" value="提交" id="but3"><br>
+    </form>
+    <script>
+        // function zd(){
+        //         var key3=inp3.value;
+        //         var val3=mm3.value;
+        //         localStorage.setItem('yh3',key3);
+        //         localStorage.setItem('mm3',val3);
+        //         localStorage.setItem('yh',key3);
+        //         localStorage.setItem('mm',val3);
+        // }
+        // zd()
+            but1.onclick=function(){
+                var key=inp1.value;
+                var val=mm1.value;
+                localStorage.setItem('yh1',key);
+                localStorage.setItem('mm1',val);
+                console.log('注册密码' + localStorage.getItem('mm1'))
+            }
+            but3.onclick=function(){
+                var key3=inp3.value;
+                var val3=mm3.value;
+                localStorage.setItem('yh3',key3);
+                localStorage.setItem('mm3',val3);
+                localStorage.setItem('yh1',key3);
+                localStorage.setItem('mm1',val3);
+                console.log('注册密码' + localStorage.getItem('mm1'))
+                console.log('修改密码' + localStorage.getItem('mm3'))
+            }
+            but2.onclick=function(){
+                var key2=inp2.value;
+                var val2=mm2.value;
+                localStorage.setItem('yh2',key2);
+                localStorage.setItem('mm2',val2);
+                console.log('注册密码' + localStorage.getItem('mm1'))
+                alert('登录密码' + localStorage.getItem('mm2'))
+            if(localStorage.getItem('mm2') == localStorage.getItem('mm1') && localStorage.getItem('yh2') == localStorage.getItem('yh1')){
+                location.href='https://www.baidu.com';
+            }else{
+                alert('密码有误')
+            }
+            }
+    </script>
+</body>
+</html>

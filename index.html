@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/flexible/flexible.debug.js"></script>
+    <script src="../lib/flexible/flexible_css.debug.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="box">
+        <header>
+            <article class="top">
+
+                <img src="img/1.png" alt="" id="lb">
+                <input type="text" placeholder="肥皂剧告诉我们不要捡肥皂">
+                <img src="img/2.png" alt="">
+            </article>
+            <h2>下午好！585</h2>
+            <p>查询余额</p>
+            <article class="bottom">
+                <dl>
+                    <dt><img src="img/3.png" alt=""></dt>
+                    <dd>财付</dd>
+                </dl>
+                <dl>
+                    <dt><img src="img/4.png" alt=""></dt>
+                    <dd>转账</dd>
+                </dl>
+                <dl>
+                    <dt><img src="img/5.png" alt=""></dt>
+                    <dd>快递</dd>
+                </dl>
+                <dl>
+                    <dt><img src="img/6.png" alt=""></dt>
+                    <dd>龙支付</dd>
+                </dl>
+            </article>
+        </header>
+        <main>
+            <dl>
+                <dt><img src="img/7.png" alt=""></dt>
+                <dd>速盈</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/8.png" alt=""></dt>
+                <dd>理财产品</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/9.png" alt=""></dt>
+                <dd>保险</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/10.png" alt=""></dt>
+                <dd>信用卡申请</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/11.png" alt=""></dt>
+                <dd>扫一扫</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/12.png" alt=""></dt>
+                <dd>话费充值</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/13.png" alt=""></dt>
+            </dl>
+            <dl>
+                <dt>
+
+                </dt>
+            </dl>
+        </main>
+        <div class="min">
+            
+        </div>
+        <footer>
+            <dl>
+                <dt><img src="img/b1.png" alt=""></dt>
+                <dd>首页</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/b2.png" alt=""></dt>
+                <dd>信用卡</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/b3.png" alt=""></dt>
+                <dd>投资理财</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/b4.png" alt=""></dt>
+                <dd>贷款</dd>
+            </dl>
+            <dl>
+                <dt><img src="img/b5.png" alt=""></dt>
+                <dd>悦享生活</dd>
+            </dl>
+        </footer>
+        <div class="max">
+            <dl class="dl">
+                <dt><img src="img/l1.png" alt="" id="xs"></dt>
+                <dd>中国建设银行<br><span>China Construction Bank</span></dd>
+            </dl>
+            <article class="ll">
+                <dl>
+                    <dt><img src="img/l2.png" alt=""></dt>
+                    <dd class="but">点击登录</dd>
+                </dl>
+                <p>猫猫的鱼</p>
+            </article>
+            <ul>
+                <li><a href="">消息</a></li>
+                <li><a href="">发现</a></li>
+                <li><a href="">推荐应用</a></li>
+                <li><a href="">安全中心</a></li>
+                <li><a href="">设置</a></li>
+                <li><a href="">关于</a></li>
+            </ul>
+            <p class="p">版本4.0.0.916461</p>
+        </div>
+    </div>
+    <script src="../lib/jquery/jquery-1.12.4.min.js"></script>
+    <script>
+        // $(function(){
+            $('#lb').click(function(){
+                $('.max').css('display','block')
+                $('#box').css('background','#777777')
+            })
+            $('#xs').click(function(){
+                $('.max').css('display','none')
+            })
+            $('.but').click(function(){
+                window.location.href='../../lx/dm/project/project/index.html'
+            })
+        // })
+    </script>
+</body>
+</html>
